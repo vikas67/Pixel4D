@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/Image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="john Wick"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/Image"
+        app:layout_constraintLeft_toLeftOf="@+id/Image"
+        app:layout_constraintRight_toRightOf="@+id/Image"
+        android:fontFamily="@font/lato_regular"
+        app:layout_constraintStart_toStartOf="@+id/Image"
+        app:layout_constraintTop_toBottomOf="@+id/Image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

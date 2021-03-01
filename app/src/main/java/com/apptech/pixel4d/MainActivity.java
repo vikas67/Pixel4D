@@ -1,25 +1,28 @@
 package com.apptech.pixel4d;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.apptech.pixel4d.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private static final String TAG = "MainActivity";
+    Menu mMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +45,22 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        binding.appBarMain.CancleBtn.setOnClickListener(v -> {
+            mMenu.findItem(R.id.action_filter).setVisible(true);
+            mMenu.findItem(R.id.action_search).setVisible(true);
+            binding.appBarMain.searchViewEditText.setVisibility(View.INVISIBLE);
+            binding.appBarMain.CancleBtn.setVisibility(View.INVISIBLE);
+            getSupportActionBar().setTitle("Home");
+        });
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        mMenu = menu;
         return true;
     }
 
@@ -57,4 +70,49 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_filter:
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, binding.getRoot());
+                popupMenu.getMenuInflater().inflate(R.menu.filtermenu, item.getSubMenu());
+                popupMenu.show();
+                break;
+            case R.id.action_search:
+                mMenu.findItem(R.id.action_filter).setVisible(false);
+                mMenu.findItem(R.id.action_search).setVisible(false);
+                binding.appBarMain.searchViewEditText.setVisibility(View.VISIBLE);
+                binding.appBarMain.CancleBtn.setVisibility(View.VISIBLE);
+                getSupportActionBar().setTitle("");
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
