@@ -14,4 +14,14 @@
     <string name="free">Free</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="name">Pixel 4D</string>
+    <string name="signin">Sign In</string>
+    <string name="signin_text">Sign in &amp; save your purchases</string>
+    <string name="premium"> Go Premium</string>
+    <string name="categories"> Categories</string>
+    <string name="setting"> Setting</string>
+    <string name="support"> Support</string>
+    <string name="remove_add">Remove Ads</string>
 </resources>

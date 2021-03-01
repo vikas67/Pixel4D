@@ -9,4 +9,12 @@
     <color name="lightblack">#DA000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#F36767</color>
+
+    <color name="mat_black">#1C1B1B</color>
+    <color name="gray">#E8E3E3</color>
+    <color name="gadient_start">#F44336</color>
+    <color name="gadient_end">#E37AF4</color>
+
+
+
 </resources>
