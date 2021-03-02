@@ -2,6 +2,8 @@ package com.apptech.pixel4d.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapter.ViewBinding> {
+public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapter.ViewBinding> implements Filterable {
 
     List<Wallpaper> wallpapers;
     RowProductImgBinding binding;
@@ -42,6 +44,10 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
         return wallpapers.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
 
 
     public class ViewBinding extends RecyclerView.ViewHolder {
@@ -49,4 +55,7 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
             super(itemView.getRoot());
         }
     }
+
+
+
 }
