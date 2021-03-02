@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
         final int SAVE_MENU_ITEM = NEW_MENU_ITEM + 1;
         final int UNDO_MENU_ITEM = SAVE_MENU_ITEM + 1;
         final int REDO_MENU_ITEM = UNDO_MENU_ITEM + 1;
-        SubMenu color = menu.addSubMenu("Color");
+        SubMenu color = menu.addSubMenu(3,0,1,"Color");
 //        SubMenu date_time = menu.addSubMenu("Date Time");
         SubMenu price = menu.addSubMenu(1,0,1,"Price");
 
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
 
         homeViewModel.mainListMutableLiveData.observe(this, mainList -> {
             for (int i=0;i<mainList.getColors().size();i++){
-                color.add(FILE, NEW_MENU_ITEM, i, mainList.getColors().get(i).getName());
+                color.add(3, NEW_MENU_ITEM, i, mainList.getColors().get(i).getName());
             }
         });
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
 //                popupMenu.show();
                 break;
             case R.id.action_search:
-                mMenu.findItem(0).setVisible(false);
+//                mMenu.findItem(0).setVisible(false);
                 mMenu.findItem(R.id.action_search).setVisible(false);
                 binding.appBarMain.searchViewEditText.setVisibility(View.VISIBLE);
                 binding.appBarMain.CancleBtn.setVisibility(View.VISIBLE);

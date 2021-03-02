@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface , 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Log.e("dsfn", String.valueOf(item.getItemId()));
         switch(item.getGroupId()){
-            case 0:
+            case 3:
                 Applyfilter(String.valueOf(item.getTitle()),item.getGroupId());
                 break;
             case 2:
@@ -109,8 +109,7 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface , 
 
         }
 
-
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -127,7 +126,7 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface , 
     }
 
     private void Applyfilter(String title,int groupid) {
-        if (!title.equals("Color") && groupid==0 ) {
+        if (!title.equals("Color") && groupid==3) {
             List<Wallpaper> filtered = new ArrayList<>();
             homeViewModel.mainListMutableLiveData.observe(requireActivity(), mainList -> {
                 for (int i = 0; i < mainList.getWallpapers().size(); i++) {
@@ -135,10 +134,10 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface , 
                         filtered.add(mainList.getWallpapers().get(i));
                     }
                 }
-
+                productImageAdapter = new ProductImageAdapter(filtered,this);
+                binding.ImageRecyclerView.setAdapter(productImageAdapter);
             });
-            productImageAdapter = new ProductImageAdapter(filtered,this);
-            binding.ImageRecyclerView.setAdapter(productImageAdapter);
+
         }
     }
 
