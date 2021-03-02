@@ -19,10 +19,7 @@ import com.apptech.pixel4d.model.home.Wallpaper;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class HomeFragment extends Fragment implements TagAdapter.TagInterface {
 
@@ -30,8 +27,7 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface {
     private FragmentHomeBinding binding;
     private static final String TAG = "HomeFragment";
     List<Wallpaper> wallpaperlists;
-    Set set = new HashSet();
-
+    ProductImageAdapter productImageAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,14 +43,16 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface {
         homeViewModel = ViewModelProviders.of(requireActivity()).get(HomeViewModel.class);
         homeViewModel.mainListMutableLiveData.observe(requireActivity(), mainList -> {
             wallpaperlists = mainList.getWallpapers();
+
+            productImageAdapter = new ProductImageAdapter(mainList.getWallpapers());
+
             binding.TagRecyclerView.setAdapter(new TagAdapter(mainList.getTags(), this));
-            binding.ImageRecyclerView.setAdapter(new ProductImageAdapter(mainList.getWallpapers()));
+            binding.ImageRecyclerView.setAdapter(productImageAdapter);
             binding.FeaturedRecyclerView.setAdapter(new FeaturedAdapter(mainList.getWallpaperFeatured()));
         });
 
         homeViewModel.getText().observe(requireActivity(), s -> {
-//            set.add(s);
-//            Collections.sort();
+            productImageAdapter.getFilter().filter(s);
         });
 
     }
@@ -73,20 +71,6 @@ public class HomeFragment extends Fragment implements TagAdapter.TagInterface {
  */
 
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//
-//        switch (item.getItemId()) {
-//            case R.id.action_filter:
-//
-//                break;
-//            case R.id.action_search:
-//
-//                break;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
 
     @Override

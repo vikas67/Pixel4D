@@ -12,6 +12,9 @@ public class Wallpaper {
     @SerializedName("name")
     @Expose
     private String name;
+    @SerializedName("meta_title")
+    @Expose
+    private String metaTitle;
     @SerializedName("cat_name")
     @Expose
     private String catName;
@@ -57,6 +60,14 @@ public class Wallpaper {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getMetaTitle() {
+        return metaTitle;
+    }
+
+    public void setMetaTitle(String metaTitle) {
+        this.metaTitle = metaTitle;
     }
 
     public String getCatName() {
