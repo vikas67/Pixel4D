@@ -3,8 +3,10 @@ package com.apptech.pixel4d;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -69,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
 
 
         binding.appBarMain.CancleBtn.setOnClickListener(v -> {
-            mMenu.findItem(R.id.action_filter).setVisible(true);
             mMenu.findItem(R.id.action_search).setVisible(true);
             binding.appBarMain.searchViewEditText.setVisibility(View.INVISIBLE);
             binding.appBarMain.CancleBtn.setVisibility(View.INVISIBLE);
@@ -108,9 +109,29 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        mMenu=menu;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        mMenu = menu;
+        final int EDIT = 1;
+        final int FILE = 0;
+        final int NEW_MENU_ITEM = Menu.FIRST;
+        final int SAVE_MENU_ITEM = NEW_MENU_ITEM + 1;
+        final int UNDO_MENU_ITEM = SAVE_MENU_ITEM + 1;
+        final int REDO_MENU_ITEM = UNDO_MENU_ITEM + 1;
+        SubMenu color = menu.addSubMenu("Color");
+        SubMenu date_time = menu.addSubMenu("Date Time");
+//
+//        editMenu.add(EDIT, UNDO_MENU_ITEM, 0, "undo");
+//        editMenu.add(EDIT, REDO_MENU_ITEM, 1, "redo");
+
+
+
+        homeViewModel.mainListMutableLiveData.observe(this, mainList -> {
+            for (int i=0;i<mainList.getColors().size();i++){
+                color.add(FILE, NEW_MENU_ITEM, i, mainList.getColors().get(i).getName());
+            }
+        });
+
         return true;
     }
 
@@ -124,15 +145,15 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
+        Log.e("dsfn", String.valueOf(item.getItemId()));
         switch (item.getItemId()) {
-            case R.id.action_filter:
+            case 0:
 //                PopupMenu popupMenu = new PopupMenu(MainActivity.this, binding.getRoot());
 //                popupMenu.getMenuInflater().inflate(R.menu.filtermenu, item.getSubMenu());
 //                popupMenu.show();
                 break;
             case R.id.action_search:
-                mMenu.findItem(R.id.action_filter).setVisible(false);
+                mMenu.findItem(0).setVisible(false);
                 mMenu.findItem(R.id.action_search).setVisible(false);
                 binding.appBarMain.searchViewEditText.setVisibility(View.VISIBLE);
                 binding.appBarMain.CancleBtn.setVisibility(View.VISIBLE);
