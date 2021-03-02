@@ -19,6 +19,7 @@ public class HomeViewModel extends AndroidViewModel {
     HomeRepo homeRepo;
     private static final String TAG = "HomeViewModel";
     private MutableLiveData<String> mText = new MutableLiveData<>();
+    private MutableLiveData<String> navigationCategory = new MutableLiveData<>();
 
 
     public HomeViewModel(@NonNull @NotNull Application application) {
@@ -35,15 +36,18 @@ public class HomeViewModel extends AndroidViewModel {
     }
 
 
-
     public void WallpaperCategoryId(String cat_name) {
-        homeRepo.Category_search_cat_name(cat_name);
+        navigationCategory.setValue(cat_name);
     }
 
     public LiveData<String> getText() {
         return mText;
     }
 
+
+    public LiveData<String> getNavigationCategory() {
+        return navigationCategory;
+    }
 
 
 }

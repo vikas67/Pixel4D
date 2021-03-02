@@ -24,10 +24,12 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
     List<Wallpaper> filterwallpapersall;
     RowProductImgBinding binding;
     private static final String TAG = "ProductImageAdapter";
+    ProductImageClickInterface productImageClick;
 
-    public ProductImageAdapter(List<Wallpaper> wallpapers) {
+    public ProductImageAdapter(List<Wallpaper> wallpapers , ProductImageClickInterface productImageClick) {
         this.wallpapers = wallpapers;
         this.filterwallpapersall = new ArrayList<>(wallpapers);
+        this.productImageClick = productImageClick;
     }
 
     @NonNull
@@ -35,6 +37,7 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
     @Override
     public ViewBinding onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         binding = RowProductImgBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        binding.setClickevent(productImageClick);
         return new ViewBinding(binding);
     }
 
@@ -94,6 +97,10 @@ public class ProductImageAdapter extends RecyclerView.Adapter<ProductImageAdapte
         public ViewBinding(@NonNull @NotNull RowProductImgBinding itemView) {
             super(itemView.getRoot());
         }
+    }
+
+    public interface ProductImageClickInterface {
+        void onItemclick(Wallpaper list);
     }
 
 

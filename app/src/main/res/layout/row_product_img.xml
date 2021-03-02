@@ -7,11 +7,17 @@
         <variable
             name="wallpaperlist"
             type="com.apptech.pixel4d.model.home.Wallpaper" />
+
+        <variable
+            name="clickevent"
+            type="com.apptech.pixel4d.adapter.ProductImageAdapter.ProductImageClickInterface" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickevent.onItemclick(wallpaperlist)}"
         android:background="@drawable/round_corner">
 
         <com.makeramen.roundedimageview.RoundedImageView
