@@ -112,17 +112,17 @@ public class MainActivity extends AppCompatActivity implements NavigationAdapter
         mMenu=menu;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        final int EDIT = 1;
         final int FILE = 0;
         final int NEW_MENU_ITEM = Menu.FIRST;
         final int SAVE_MENU_ITEM = NEW_MENU_ITEM + 1;
         final int UNDO_MENU_ITEM = SAVE_MENU_ITEM + 1;
         final int REDO_MENU_ITEM = UNDO_MENU_ITEM + 1;
         SubMenu color = menu.addSubMenu("Color");
-        SubMenu date_time = menu.addSubMenu("Date Time");
-//
-//        editMenu.add(EDIT, UNDO_MENU_ITEM, 0, "undo");
-//        editMenu.add(EDIT, REDO_MENU_ITEM, 1, "redo");
+//        SubMenu date_time = menu.addSubMenu("Date Time");
+        SubMenu price = menu.addSubMenu(1,0,1,"Price");
+
+        price.add(1, UNDO_MENU_ITEM, 0, "Free");
+        price.add(1, REDO_MENU_ITEM, 1, "Paid");
 
 
 
