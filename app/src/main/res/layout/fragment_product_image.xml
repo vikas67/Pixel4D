@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.productimage.ProductImageFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ImageRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:spanCount="3"
-        tools:listitem="@layout/row_product_img" />
+
 
 </FrameLayout>

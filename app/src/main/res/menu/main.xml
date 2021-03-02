@@ -11,6 +11,12 @@
         android:id="@+id/action_filter"
         android:orderInCategory="100"
         android:icon="@drawable/ic_filter"
-        app:showAsAction="ifRoom"
-        android:title="TODO" />
+        android:title="Color"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_date_time"
+        android:icon="@drawable/ic_filter"
+        android:orderInCategory="100"
+        android:title="Date Time"
+        app:showAsAction="never" />
 </menu>

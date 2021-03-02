@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
-    android:background="@color/mat_black"
-    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    android:orientation="horizontal"
-    android:layout_height="wrap_content">
+    <data>
 
-    <ImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:id="@+id/dot"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/dot_icon"
-        tools:ignore="MissingConstraints" />
+        <variable
+            name="categorylist"
+            type="com.apptech.pixel4d.model.home.Category" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="@string/premium"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintLeft_toRightOf="@+id/dot"
-        android:layout_gravity="center_vertical"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/gray"
+        <variable
+            name="categoryClick"
+            type="com.apptech.pixel4d.adapter.NavigationAdapter.NavigationInterface" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
+        android:layout_margin="5dp"
+        android:background="@color/mat_black"
+        android:onClick="@{() -> categoryClick.navigationItemClick(categorylist)}"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/dot"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/dot_icon"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@{categorylist.name}"
+            android:textColor="@color/gray"
+            app:layout_constraintLeft_toRightOf="@+id/dot"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

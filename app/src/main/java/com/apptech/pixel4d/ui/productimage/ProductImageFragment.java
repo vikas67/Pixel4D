@@ -9,15 +9,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.apptech.pixel4d.adapter.ProductImageAdapter;
 import com.apptech.pixel4d.databinding.FragmentProductImageBinding;
+import com.apptech.pixel4d.model.home.Tag;
 
 import org.jetbrains.annotations.NotNull;
 
 
 public class ProductImageFragment extends Fragment {
 
+    private final Tag tagList;
     FragmentProductImageBinding binding;
+
+
+
+    public ProductImageFragment(Tag taglist) {
+        this.tagList = taglist;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +40,6 @@ public class ProductImageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.ImageRecyclerView.setAdapter(new ProductImageAdapter());
+
     }
 }
