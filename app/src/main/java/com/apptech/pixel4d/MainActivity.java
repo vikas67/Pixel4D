@@ -50,11 +50,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        recyclerView= drawer.findViewById(R.id.recycle);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(new NavigationAdapter(this,navigationLists));
+        binding.recycle.setAdapter(new NavigationAdapter(this,navigationLists));
+        binding.premium.setOnClickListener(v -> {navController.navigate(R.id.nav_premium);});
     }
 
     @Override

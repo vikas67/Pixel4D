@@ -19,16 +19,17 @@
              android:layout_width="match_parent"
              android:layout_weight="0.2"
              android:id="@+id/title"
-             android:textColor="@drawable/text_gradient"
              android:textAlignment="center"
              android:text="@string/name"
-             android:textSize="20dp"
+             android:textSize="26dp"
+             android:fontFamily="@font/reggaeone_regular"
              android:layout_height="match_parent"
              android:gravity="center_horizontal" />
          
          <ImageView
              android:layout_width="match_parent"
              android:layout_weight="1.8"
+             android:id="@+id/close"
              android:src="@drawable/close_icon"
              android:layout_height="match_parent"/>
          
@@ -39,14 +40,345 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbarThumbVertical="@drawable/text_gradient"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topview">
         
-<!--        <LinearLayout-->
-<!--            android:layout_width=""-->
-<!--            android:layout_height=""-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="20dp"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gradient_round_corner"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Rs 140.00/ 3 Month"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/unlock"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/stop"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/tex"
+                        android:textColor="@color/gray"
+                        android:textSize="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lato_regular"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_premium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/premium"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gradient_round_corner"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Rs 140.00/ 3 Month"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/unlock"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/stop"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/tex"
+                        android:textColor="@color/gray"
+                        android:textSize="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lato_regular"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gradient_round_corner"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Rs 140.00/ 3 Month"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/unlock"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/stop"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/tex"
+                        android:textColor="@color/gray"
+                        android:textSize="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lato_regular"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_premium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/premium"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gradient_round_corner"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Rs 140.00/ 3 Month"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/unlock"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/stop"
+                        android:textColor="@color/gray"
+                        android:textSize="14dp"
+                        android:drawableLeft="@drawable/ic_star"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="@string/tex"
+                        android:textColor="@color/gray"
+                        android:textSize="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lato_regular"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginTop="20dp"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/white"
+                   android:textSize="14dp"
+                   android:fontFamily="@font/lato_regular"
+                   android:text="@string/manage"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/save"/>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
 
 
     </ScrollView>

@@ -24,4 +24,9 @@
     <string name="setting"> Setting</string>
     <string name="support"> Support</string>
     <string name="remove_add">Remove Ads</string>
+    <string name="stop">Stop Ads</string>
+    <string name="manage">Manage Subscription</string>
+    <string name="save">Sign in &amp; save your purchases </string>
+    <string name="tex">An auto renewable 3 month subscription will we activated</string>
+    <string name="unlock">unlock all live walpapers</string>
 </resources>
